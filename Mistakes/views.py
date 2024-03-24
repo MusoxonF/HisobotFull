@@ -227,7 +227,7 @@ class BolimDetail(APIView):
     
     def delete(self, request, id):
         user = request.user
-        bulim = Bulim.objects.get(id=id)
+        bulim = Bolim.objects.get(id=id)
         if user.is_admin==True or user.is_direktor==True:
             bulim.delete()
             return Response(status=204)
