@@ -156,7 +156,7 @@ class SignUpDetail(APIView):
     
     def delete(self, request, id):
         user = User.objects.filter(id=id).first()
-        if request.user.is_admin or user.is_direktor==True:
+        if request.user.is_admin==True or user.is_direktor==True:
             user.delete()
             return Response({'message': 'User o\'chirildi'})
         return Response({'message': 'Siz admin, direktor emassiz yoki ro\'yxatdan o\'tmagansiz'})
