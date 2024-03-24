@@ -305,6 +305,7 @@ class MaxsulotDetail(APIView):
         maxsulot = Maxsulot.objects.get(id=id)
         if request.user.is_tekshiruvchi == True or request.user.is_admin == True or request.user.is_direktor == True:
             maxsulot.delete()
+            return Response({'message':'mahsulot deleted successfully'})
         return Response({'message':'Siz Admin, Direktor yoki Tekshiruvchi emassiz'})
 
 
