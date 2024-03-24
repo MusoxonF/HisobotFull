@@ -346,6 +346,7 @@ class ProblemDetail(APIView):
         problem = Problem.objects.get(id=id)
         if request.user.is_tekshiruvchi == True or request.user.is_direktor==True or request.user.is_admin==True:
             problem.delete()
+            return Response({'message':'Xato deleted successfully'})
         return Response({'message':'Siz Admin, Direktor yoki Tekshiruvchi emassiz'})
 
 
